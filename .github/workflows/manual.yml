@@ -36,7 +36,7 @@ jobs:
         git checkout --orphan gh-pages
         
         # docs/と.git等以外を全て削除
-        ls | grep -v -E 'Doxyfile' | xargs rm -rf
+        ls | grep -v -E 'Doxyfile|docs' | xargs rm -rf
         
         git config --global user.name 'github-bot'
         git config --global user.email 'github-bot@users.noreply.github.com'
