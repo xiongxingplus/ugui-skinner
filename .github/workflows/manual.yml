@@ -36,7 +36,7 @@ jobs:
         git checkout --orphan gh-pages
         
         # docs/と.git等以外を全て削除
-        docs ls | grep -v -E 'docs/|^.' | xargs rm -r
+        ls | grep -v -E '^.' | xargs rm -r
         
         git config --global user.name 'github-bot'
         git config --global user.email 'github-bot@users.noreply.github.com'
