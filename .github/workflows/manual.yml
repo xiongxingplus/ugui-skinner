@@ -21,12 +21,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: 'github.event.inputs.branch' 
+        ref: '${{ github.event.inputs.branch }}' 
         fetch-depth: 0
     - uses: mattnotmitt/doxygen-action@v1
       with:
         working-directory: 'Packages/uGUI-Skinner'
-        doxyfile-path: 'github.event.inputs.doxyfile'
+        doxyfile-path: '${{ github.event.inputs.doxyfile }}'
     - name: gh-paged commit
       run: |
         git branch -d gh-pages &> /dev/null || echo gh-pages branch not found
