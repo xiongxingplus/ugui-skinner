@@ -47,7 +47,9 @@ jobs:
         git config --global user.name 'github-bot'
         git config --global user.email 'github-bot@users.noreply.github.com'
         git commit -am "docs: remove all"
+        cmod 666 docs/html
         mv -f docs/html _docs
+        rm -rf docs
         mv -f _docs docs
         git add docs/*
         git commit -m "docs: generate doxygen"
