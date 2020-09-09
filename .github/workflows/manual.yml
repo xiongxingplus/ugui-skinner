@@ -9,11 +9,11 @@ on:
       doxyfile:
         description: 'Doxyfile path'
         required: true
-        default: 'Doxyfile'
+        default: '/Doxyfile'
       working-dir:
         description: 'Working Directory'
         required: true
-        default: 'Packages/uGUI-Skinner'
+        default: '.'
 
 jobs:
   create_document:
@@ -27,8 +27,8 @@ jobs:
         ls
     - uses: mattnotmitt/doxygen-action@v1
       with:
-        working-directory: 'Packages/uGUI-Skinner'
-        doxyfile-path: './${{ github.event.inputs.doxyfile }}'
+        working-directory: '${{ github.event.inputs.working-dir }}'
+        doxyfile-path: '.${{ github.event.inputs.doxyfile }}'
     - name: gh-paged commit
       run: |
         git branch -d gh-pages &> /dev/null || echo gh-pages branch not found
