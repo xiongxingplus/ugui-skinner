@@ -29,6 +29,9 @@ jobs:
       with:
         working-directory: '${{ github.event.inputs.working-dir }}'
         doxyfile-path: '.${{ github.event.inputs.doxyfile }}'
+    - name: gh-paged ls 2
+      run: |
+        ls
     - name: gh-paged commit
       run: |
         git branch -d gh-pages &> /dev/null || echo gh-pages branch not found
@@ -43,7 +46,7 @@ jobs:
         
         git config --global user.name 'github-bot'
         git config --global user.email 'github-bot@users.noreply.github.com'
-        git add doc/*
+        git add docs/*
         git commit -m "docs: generate doxygen"
         
         git push -f -u origin gh-pages
